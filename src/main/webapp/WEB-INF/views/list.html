@@ -4,9 +4,10 @@
     <title>List Customer</title>
 </head>
 <body>
-<h3>Customers</h3>
+<h3 th:text="#{list.heading}"></h3>
+<a href="?lang=en" id = "l">English</a> | <a href="?lang=vi">Viet Nam</a>
 <p>
-    <a th:href="@{/customer/create}">
+    <a th:href="@{/customer/create}" th:text="#{list.add}">
         Add new customer
     </a>
 </p>
@@ -22,17 +23,17 @@
     <thead>
     <tr>
         <th>STT</th>
-        <th>name</th>
-        <th>Update</th>
-        <th>Delete</th>
+        <th th:text="#{list.name}"></th>
+        <th th:text="#{list.edit}"></th>
+        <th th:text="#{list.delete}"></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="c,cStatus : ${customer}">
         <td th:text="${cStatus.count}"></td>
         <td th:text="${c.getName()}"></td>
-        <td><a th:href="@{/customer/update/{id}(id=${c.getId()})}">update</a></td>
-        <td><a th:href="@{/customer/delete/{id}(id=${c.getId()})}">delete</a></td>
+        <td><a th:href="@{/customer/update/{id}(id=${c.getId()})}" th:text="#{list.edit}"></a></td>
+        <td><a th:href="@{/customer/delete/{id}(id=${c.getId()})}" th:text="#{list.delete}">delete</a></td>
     </tr>
     </tbody>
 </table>

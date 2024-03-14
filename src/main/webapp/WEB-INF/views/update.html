@@ -4,22 +4,17 @@
     <title>Update Customer</title>
 </head>
 <body>
-<h3>Update Customer</h3>
-<p>
-    <a th:href="@{/customers}">
-        Back to customer list
-    </a>
-</p>
+<h3 th:text="#{edit.heading}"></h3>
+<a href="?lang=en" id = "l">English</a> | <a href="?lang=vi">Viet Nam</a>
 <div id="form">
     <form th:action="@{/customer/update/{id}(id=${customer.getId()})}" th:object="${customer}"
           method="POST" novalidate="novalidate">
         <div>
-            <label for="name">name</label>
+            <label for="name" th:text="#{edit.name}"></label>
             <input type="text" id="name" th:field="*{name}"/>
         </div>
 
-
-        <input type="submit" value="Edit"/>
+<button type="submit" value="edit" th:text="#{edit.button}"></button>
     </form>
 </div>
 <footer th:replace="/layout :: footer"></footer>

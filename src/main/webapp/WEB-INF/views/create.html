@@ -5,19 +5,21 @@
     <title>Title</title>
 </head>
 <body>
+<h3 th:text="#{create.heading}"></h3>
+<a href="?lang=en" id = "l">English</a> | <a href="?lang=vi">Viet Nam</a>
 <p>
-    <a th:href="@{/customer}">
-        back to list
+    <a th:href="@{/customer}" th:text="#{create.back}">
+
     </a>
 </p>
 <div id="form">
     <form th:action="@{/customer/create}" th:object="${customer}" method="post" novalidate="novalidate">
         <input type="hidden" th:field="*{id}">
         <div>
-            <label for="name"> name</label>
+            <label for="name" th:text="#{create.name}"></label>
             <input type="text" id="name" th:field="*{name}">
         </div>
-        <input type="submit" value="save">
+        <button type="submit" value="create" th:text="#{create.button}"></button>
 
 </form>
 </div>
